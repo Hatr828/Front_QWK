@@ -38,6 +38,7 @@
 		"vite": "^7.0.4"
 	},
 	"dependencies": {
-		"bootstrap": "^5.3.7"
+		"bootstrap": "^5.3.7",
+		"chart.js": "^4.5.0"
 	}
 }

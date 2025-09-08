@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { postJSON } from '$lib/api';
+	import { postJSON, setToken } from '$lib/api';
 
 	let email = '';
 	let password = '';
@@ -23,7 +23,7 @@
 				user?: { id: number; name: string; email: string; role: string };
 			}>('/api/login', { email, password });
 
-			localStorage.setItem('token', resp.token);
+			setToken(resp.token);
 			if (resp.user) localStorage.setItem('user', JSON.stringify(resp.user));
 
 			await goto('/home');
