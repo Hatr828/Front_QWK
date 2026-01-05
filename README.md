@@ -1,38 +1,73 @@
-# sv
+# Front_QWK — фронтенд веб‑приложения на Svelte
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+**Front_QWK** — клиентская часть веб‑приложения, разработанная с использованием Svelte. Проект ради экзаменов. Фронтенд предоставляет интерфейс для прохождения тестов и отправки ответов, взаимодействуя с бэкендом через REST API.
 
-## Creating a project
+## Технологии
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **SvelteKit (Svelte 5)** — фреймворк для создания веб‑приложений на Svelte
+- **TypeScript** — статическая типизация для фронтенда
+- **Bootstrap 5** — UI‑компоненты/сеточная система
+- **Chart.js** — графики/диаграммы
+- **Vite** — сборка
 
-```sh
-# create a new project in the current directory
-npx sv create
+## Быстрый старт
 
-# create a new project in my-app
-npx sv create my-app
+### Установка
+
+```bash
+git clone https://github.com/Hatr828/Front_QWK.git
+cd Front_QWK
+npm install
 ```
 
-## Developing
+### Настройка адреса API
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Создайте файл `.env` в корне проекта:
 
-```sh
+```bash
+PUBLIC_API_BASE="http://localhost:8000/api"
+```
+
+Значение должно указывать на базовый URL API бэкенда.
+
+### Запуск
+
+```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+### Сборка (production)
 
-To create a production version of your app:
-
-```sh
+```bash
 npm run build
+npm run preview
 ```
 
-You can preview the production build with `npm run preview`.
+## Структура проекта
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```
+Front_QWK/
+├─ src/                      
+│   ├─ routes/               # Маршруты и страницы приложения
+│   │   ├─ +page.svelte      # Главная страница
+│   │   ├─ home/+page.svelte # домашняя страница
+│   │   ├─ test/[id]/+page.svelte    # Динамический маршрут (тест по ID)
+│   │   └─ admin/…           # Админ‑раздел (управление тестами)
+│   ├─ lib/                  # Компоненты и утилиты
+│   │   ├─ api/              # Работа с API (HTTP‑запросы, авторизация)
+│   │   └─ components/       # Переиспользуемые компоненты
+│   ├─ app.html              
+│   └─ app.css             
+├─ static/                  
+├─ svelte.config.js         
+├─ vite.config.ts          
+├─ package.json             
+├─ tsconfig.json             
+└─ README.md                 
+```
+
+## Полезные ссылки
+
+- Документация Svelte / SvelteKit: https://svelte.dev/docs
+- Tailwind CSS: https://tailwindcss.com/docs
+- Bootstrap 5: https://getbootstrap.com/docs/5.3/getting-started/introduction/
